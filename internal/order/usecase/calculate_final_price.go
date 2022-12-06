@@ -20,12 +20,12 @@ type OrderOutputDTO struct {
 }
 
 type CalculateFinalPriceUseCase struct {
-	OerderRepository interfaces.OerderRepositoryInterface
+	OrderRepository interfaces.OerderRepositoryInterface
 }
 
 func NewCalculateFinalPriceUseCase(orderRepository database.OrderRepository) *CalculateFinalPriceUseCase {
 	return &CalculateFinalPriceUseCase{
-		OerderRepository: &orderRepository,
+		OrderRepository: &orderRepository,
 	}
 }
 
@@ -40,7 +40,7 @@ func (c *CalculateFinalPriceUseCase) Execute(input OrderInputDTO) (*OrderOutputD
 		return nil, err
 	}
 
-	err = c.OerderRepository.Save(order)
+	err = c.OrderRepository.Save(order)
 	if err != nil {
 		return nil, err
 	}

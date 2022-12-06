@@ -33,6 +33,8 @@ func (suite *CalculateUseCaseFinalPriceTestSuite) TearDownTest() {
 	suite.Db.Close()
 }
 
+// Esta função com o nome "TestSuite" sem o "s" no final está dando problema de duplicidade.
+// Estudar o motivo e como posso melhorar para uma abistração
 func TestSuites(t *testing.T) {
 	suite.Run(t, new(CalculateUseCaseFinalPriceTestSuite))
 }
